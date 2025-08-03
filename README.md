@@ -91,11 +91,9 @@ void loop() {
   if (prevIrState == LOW && currentIrState == HIGH) {
     int points = random(2, 4);
     score += points;
-
     digitalWrite(buzzerPin, HIGH);
     delay(100);
     digitalWrite(buzzerPin, LOW);
-
     delay(500);
   }
 
@@ -149,7 +147,6 @@ void loop() {
     lcd.print("You Win!");
     lcd.setCursor(0, 1);
     lcd.print("Congrats!");
-
     for (int i = 0; i < 5; i++) {
       digitalWrite(buzzerPin, HIGH);
       digitalWrite(greenLedPin, HIGH);
@@ -160,16 +157,13 @@ void loop() {
     }
     delay(4000);
     gameOver = true;
-
     lcd.clear();
     lcd.setCursor(0, 0);
     lcd.print("Press button");
     lcd.setCursor(0, 1);
     lcd.print("to restart.");
-
     while (digitalRead(startButtonPin) == HIGH);
     delay(500);
-
     score = 0;
     gameRound = 1;
     gameOver = false;
@@ -199,7 +193,6 @@ void Countdown() {
     lcd.print("Game starts in:");
     lcd.setCursor(0, 1);
     lcd.print(i);
-
     digitalWrite(buzzerPin, HIGH);
     delay(200);
     digitalWrite(buzzerPin, LOW);
